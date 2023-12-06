@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import Stats from 'three/examples/jsm/libs/stats.module'
-import TheBallGame from './theBallGame'
+// import TheBallGame from './theBallGame'
+import GtaSepinaco from './gta-sepinaco/GtaSepinaco'
 import { io } from 'socket.io-client'
 
 const socket = io()
@@ -18,7 +19,8 @@ const camera = new THREE.PerspectiveCamera(
     1000
 )
 
-const theBallGame = new TheBallGame(socket, scene, renderer, camera)
+// const theBallGame = new TheBallGame(socket, scene, renderer, camera)
+const gtaSepinaco = new GtaSepinaco(socket, scene, renderer, camera)
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
@@ -38,7 +40,8 @@ function animate() {
 
     delta = Math.min(clock.getDelta(), 0.1)
 
-    theBallGame.update(delta)
+    // theBallGame.update(delta)
+    gtaSepinaco.update(delta)
 
     renderer.render(scene, camera)
 
